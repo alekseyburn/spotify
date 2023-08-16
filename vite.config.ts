@@ -1,6 +1,8 @@
 import { fileURLToPath, URL } from 'node:url';
 import Components from 'unplugin-vue-components/vite';
 import AutoImport from 'unplugin-auto-import/vite';
+import VueRouter from 'unplugin-vue-router/vite';
+import { VueRouterAutoImports } from 'unplugin-vue-router';
 
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
@@ -9,10 +11,13 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
   plugins: [
     vue(),
+    VueRouter({
+      routesFolder: 'src/views',
+    }),
     AutoImport({
-      imports: ['vue', 'vue-router', '@vueuse/core'],
+      imports: ['vue', VueRouterAutoImports, '@vueuse/core'],
       dts: true,
-      dirs: ['./src/composables'],
+      // dirs: ['./src/composables'],
       vueTemplate: true,
     }),
     Components({

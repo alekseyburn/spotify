@@ -1,8 +1,21 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
+    "auto-imports.d.ts",
+    "components.d.ts",
+    "typed-router.d.ts",
+    "**/*.d.ts"
+  ],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "module": "ESNext",
     "composite": true,
     "baseUrl": ".",
     "paths": {

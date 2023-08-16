@@ -1,0 +1,35 @@
+/* ubuntu-regular - latin_cyrillic */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  size-adjust: 102.20000000000005%;
+  ascent-override: 90%;
+  src: local('Ubuntu Regular'),
+  url('@/assets/fonts/ubuntu-v15-latin_cyrillic-400.woff2') format('woff2')
+}
+
+/* ubuntu-500 - latin_cyrillic */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  size-adjust: 102.20000000000005%;
+  ascent-override: 90%;
+  src: local('Ubuntu Medium'),
+  url('@/assets/fonts/ubuntu-v15-latin_cyrillic-500.woff2') format('woff2')
+}
+
+/* ubuntu-700 - latin_cyrillic */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  size-adjust: 102.20000000000005%;
+  ascent-override: 90%;
+  src: local('Ubuntu Bold'),
+  url('@/assets/fonts/ubuntu-v15-latin_cyrillic-700.woff2') format('woff2')
+}

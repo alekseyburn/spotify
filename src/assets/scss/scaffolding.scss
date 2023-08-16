@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  vertical-align: baseline;
+  appearance: none;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+  scroll-behavior: smooth;
+}
+
+button,
+input,
+a {
+  all: unset;
+  font: inherit;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+svg {
+  display: block;
+}
+
+.visibility-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+.button {
+
+}
