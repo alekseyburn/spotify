@@ -1,10 +1,13 @@
 <template>
   <v-header />
-  <RouterView />
+  <main>
+    <RouterView />
+  </main>
 </template>
-<script setup lang="ts">
+<script lang="ts" setup>
 import { onMounted } from 'vue';
 import { useLogin } from '@/composables/useLogin';
+
 const { checkAuth } = useLogin();
 
 onMounted(checkAuth);

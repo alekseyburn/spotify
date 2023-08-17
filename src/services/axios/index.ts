@@ -25,11 +25,13 @@ export const createApi = () => {
 
   const refreshCurrentToken = async () => {
     const store = useAuthStore();
-    
+    const router = useRouter();
+
     try {
       await AuthService.refreshAccessToken();
     } catch {
       store.clearUserProfile();
+      await router.push('/');
     }
 
     await store.getUserProfile();

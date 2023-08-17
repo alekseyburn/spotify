@@ -15,6 +15,7 @@ export const useLogin = () => {
 
   const checkAuth = async () => {
     const store = useAuthStore();
+    const router = useRouter();
 
     const params = new URLSearchParams(window.location.search);
     const code = params.get('code');
@@ -26,8 +27,12 @@ export const useLogin = () => {
 
     const token = localStorage.getItem('token');
 
-    if (!store.isAuthorized && token) {
-      await store.getUserProfile();
+    if (!store.isAuthorized) {
+      await router.push('/');
+
+      if (token) {
+        await store.getUserProfile();
+      }
     }
   };
 

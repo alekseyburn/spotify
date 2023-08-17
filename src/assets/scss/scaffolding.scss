@@ -16,7 +16,12 @@
 html {
   color: white;
   font-family: "Ubuntu", sans-serif;
+  background-color: black;
   scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
 }
 
 button,
@@ -55,5 +60,28 @@ svg {
 }
 
 .button {
+  display: grid;
+  place-content: center;
+  padding: 8px 24px;
+  border-radius: 50% / 100%;
+  color: black;
+  font-weight: 500;
+  font-size: 24px;
+  background-color: oklch(76% 0.27 145);
 
+  &:hover {
+    background-color: oklch(83% 0.27 145);
+    box-shadow: 0 0 15px 0 oklch(89% 0.235 142.7 / 50%),
+    0 0 10px 0 oklch(89% 0.235 142.7 / 10%);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+#app {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
 }

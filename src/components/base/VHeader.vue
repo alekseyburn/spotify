@@ -24,7 +24,7 @@ const { redirectToSpotifyAuth } = useLogin();
   align-content: center;
   justify-content: space-between;
   padding: 20px;
-  background-color: #000000;
+  background-color: oklch(18% 0 0);
 
   &__logo {
     font-weight: 700;
