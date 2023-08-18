@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { defineApi } from '@/services';
 import { useAuthStore } from '@/stores/auth';
+import router from '@/router';
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -25,16 +26,14 @@ export const createApi = () => {
 
   const refreshCurrentToken = async () => {
     const store = useAuthStore();
-    const router = useRouter();
 
     try {
       await AuthService.refreshAccessToken();
+      await store.setUserProfile(); // TODO: why do we need to do it after refresh
+      await router.push('/dashboard');
     } catch {
-      store.clearUserProfile();
-      await router.push('/');
+      await store.logout();
     }
-
-    await store.getUserProfile();
   };
 
   instance.interceptors.response.use(
@@ -50,6 +49,9 @@ export const createApi = () => {
         +nextRefresh - now <= 0
       ) {
         await refreshCurrentToken();
+      } else if (error?.response?.status === 401) {
+        const store = useAuthStore();
+        await store.logout();
       }
       return Promise.reject(error);
     }

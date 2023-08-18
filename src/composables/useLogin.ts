@@ -22,25 +22,16 @@ export const useLogin = () => {
 
     if (code) {
       await setAccessToken(code);
-      history.pushState('', document.title, window.location.pathname);
+      history.pushState(history.state, document.title, window.location.pathname);
     }
 
     const token = localStorage.getItem('token');
 
-    if (!store.isAuthorized) {
-      await router.push('/');
-
-      if (token) {
-        await store.getUserProfile();
-      }
+    if (!store.isAuthorized && token) {
+      await store.setUserProfile();
+      await router.push('/dashboard');
     }
   };
 
-  const logout = () => {
-    const store = useAuthStore();
-    AuthService.removeAccessToken();
-    store.clearUserProfile();
-  };
-
-  return { redirectToSpotifyAuth, checkAuth, logout };
+  return { redirectToSpotifyAuth, checkAuth };
 };

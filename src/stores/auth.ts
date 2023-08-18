@@ -8,15 +8,20 @@ export const useAuthStore = defineStore('auth', () => {
   const isAuthorized = computed(() => !!user.value);
   const userPic = computed(() => user.value?.images?.[0]?.url);
 
-  const getUserProfile = async () => {
+  const setUserProfile = async () => {
     const { data } = await AuthService.user();
     user.value = data;
-    await router.push('/dashboard');
   };
 
   const clearUserProfile = () => {
     user.value = null;
   };
 
-  return { user, userPic, isAuthorized, getUserProfile, clearUserProfile };
+  const logout = async () => {
+    AuthService.removeAccessToken();
+    clearUserProfile();
+    await router.push('/');
+  };
+
+  return { user, userPic, isAuthorized, setUserProfile, clearUserProfile, logout };
 });
